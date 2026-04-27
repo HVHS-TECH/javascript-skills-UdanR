@@ -1,9 +1,14 @@
 /****************************
-This is a block comment.
-Put your header comment here!
+Introduction
 ****************************/
 console.log("Running t01_introduction.js")
-console.log(/*Insert your message here!*/)
+console.log("Listen Mortals you shall dye infront of the almighty demon lord")
+// Variables
 
-// This is a single line comment
+/****************************
+Main Code
+****************************/
 
+/****************************
+Functions
+****************************/
