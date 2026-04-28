@@ -4,8 +4,15 @@ Introduction
 ****************************/
 console.log("Running t02_varibales.js")
 console.log("user:"+ username+" -"+" $" + money );
+console. log("Howdie,"+ username)
+console. log("Howdie,"+ username)
+console. log("Howdie,"+ username)
+
+
 // Variables
+var year = 2030
 var username = "Mr.Legend";
+var age = 22;
 var money = 10;
 
 /****************************
