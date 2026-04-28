@@ -4,9 +4,9 @@ Introduction
 ****************************/
 console.log("Running t02_varibales.js")
 console.log("user:"+ username+" -"+" $" + money );
-console. log("Howdie,"+ username)
-console. log("As of" + year + "you are"+ age + "years old")
-console. log("You have" + money + "dollars")
+console. log("Howdie,"+ username);
+console. log("As of" + year + "you are"+ age + "years old");
+console. log("You have" + money + "dollars");
 
 
 // Variables
