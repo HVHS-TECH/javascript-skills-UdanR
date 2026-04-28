@@ -3,11 +3,9 @@
 Introduction
 ****************************/
 console.log("Running t02_varibales.js")
-console.log(username);
-console.log(money);
-
+console.log("user:"+ username+" -"+" $" + money );
 // Variables
-var username = "udan";
+var username = "Mr.Legend";
 var money = 10;
 
 /****************************
