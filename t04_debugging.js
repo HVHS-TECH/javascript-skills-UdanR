@@ -1,4 +1,4 @@
-console.log["Task 4 - Debugging")
+console.log ("Task 4 - Debugging")
 
 // Set up the size of the page.
 var length = 8;
