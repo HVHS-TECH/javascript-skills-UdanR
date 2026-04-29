@@ -66,6 +66,6 @@ function getFormInfo (){
     const FORM_YEAR = document.getElementById ("year_input");
     var year = FORM_YEAR.value;
     output.innerHTML = "<h1>Welcome, "+username+"</h1>";
-    output.innerHTML += "<p>In "+year+" You are "+age+" years old</p>";
+    output.innerHTML += "<p>In "+year+", You are "+age+" years old</p>";
 
 }
