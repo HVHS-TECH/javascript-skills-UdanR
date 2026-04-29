@@ -29,9 +29,9 @@ console.log("You have $" + money);
 console.log("You spend half of your money, now you have $" + half_money);
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
-Welcomeline(username)
 
 output.innerHTML = "<h2>Added By JavaScript</h2>";
+
 output.innerHTML += "<p>Howide: "+ username + "</p>";
 output.innerHTML += "<p>As of " + year + " you are "+ age + " years old</p>";
 output.innerHTML += "<p>In 10 years you will be " + future_age + " years old</p>";
@@ -42,6 +42,7 @@ writeline()
 writeline()
 writeline()
 writeline()
+
 
 
 /****************************
