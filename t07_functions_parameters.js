@@ -29,9 +29,8 @@ console.log("You have $" + money);
 console.log("You spend half of your money, now you have $" + half_money);
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
-
-output.innerHTML = "<h2>Added By JavaScript</h2>";
-
+Welcomeline(username)
+output.innerHTML += "<h2>Added By JavaScript</h2>";
 output.innerHTML += "<p>Howide: "+ username + "</p>";
 output.innerHTML += "<p>As of " + year + " you are "+ age + " years old</p>";
 output.innerHTML += "<p>In 10 years you will be " + future_age + " years old</p>";
@@ -52,5 +51,8 @@ function writeline(){
     output.innerHTML += "<p>Less code Matters</p>";
 }
 function Welcomeline(_username){
-    output.innerHTML += "<h1>Wellcome back, "+_username+"</h1>";
+    output.innerHTML = "<h1>Wellcome back, "+_username+"</h1>";
+}
+function Welcomeline(_username, _age){
+    output.innerHTML = "<h1>Wellcome back, "+_username+"</h1>";
 }
