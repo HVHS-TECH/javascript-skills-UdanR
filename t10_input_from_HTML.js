@@ -36,7 +36,8 @@ writeline()
 writeline()
 writeline()
 
-const FORM_NAME
+const FORM_NAME = document.getElementById ("form_name");
+var username = FORM_NAME.value;
 /*Welcomeline(username, age, year, money, future_age, half_money)
 */
 /****************************
