@@ -9,11 +9,11 @@ var year = 2030
 var username = "Mr.Legend";
 var age = 22;
 var money = 10;
-var born_age = 0;
+var born_age = year;
 /****************************
 Main Code
 ****************************/
-console.log(year - age);
+console.log(born_age - age);
 console.log("Running t03_maths.js")
 console.log("Howdie,"+ username);
 console.log("As of " + year + " you are "+ age + " years old");
