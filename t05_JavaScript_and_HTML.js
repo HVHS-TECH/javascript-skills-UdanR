@@ -35,7 +35,7 @@ output.innerHTML += "<p>As of " + year + " you are "+ age + " years old</p>";
 output.innerHTML += "<p>In 10 years you will be " + future_age + " years old</p>";
 output.innerHTML += "<p>You had $" + money + "</p>";
 output.innerHTML += "<p>You spend half of your money, now you have $" + half_money + "</p>";
-output.innerHTML += "<img src= 'assets/dtec_favicon.png'>";
+output.innerHTML += "<img src='assets/dtec_favicon.png' alt='Dtech Favicon'>";
 
 /****************************
 Functions
