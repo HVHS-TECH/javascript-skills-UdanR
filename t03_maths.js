@@ -1,5 +1,4 @@
 /* Paste your code from task 2 here */
-/* Paste your code from task 1 here */
 /****************************
 Introduction
 ****************************/
