@@ -41,5 +41,5 @@ output.innerHTML += "<img src='assets/dtec_favicon.png' alt='Dtech Favicon'>";
 Functions
 ****************************/
 function writeline(){
-    output.innerHTML
+    output.innerHTML += "<p></p>";
 }
