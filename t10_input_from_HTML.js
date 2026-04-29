@@ -40,7 +40,7 @@ writeline()
 /*Welcomeline(username, age, year, money, future_age, half_money)
 */
 /****************************
-Functions
+Functions _username, _age, _year, _born_age
 ****************************/
 function writeline(){
     output.innerHTML += "<p>Less code Matters</p>";
@@ -58,12 +58,14 @@ function Welcomeline(_username, _age, _year, _money, _future_age, _half_money){
 
 }
 
-function getFormInfo (_username, _age, _year, _born_age){
+function getFormInfo (){
     const FORM_NAME = document.getElementById ("form_name");
     var username = FORM_NAME.value;
     const FORM_AGE = document.getElementById ("form_age");
     var age = FORM_AGE.value;
     const FORM_YEAR = document.getElementById ("form_year");
     var year = FORM_YEAR.value;
+    output.innerHTML = "<h1>Welcome, "+username+"</h1>";
+    output.innerHTML = "<p>In "+year+" You are "+age+" years old</p>";
 
 }
