@@ -14,13 +14,13 @@ var half_money = money
 /****************************
 Main Code
 ****************************/
+console.log("Running t05_JavaScript_and_HTML.js");
 console.log(half_money / 2);
 half_money = half_money/2;
 console.log(born_age - age);
 born_age = year - age;
 console.log(future_age + 10);
 future_age = age + 10;
-console.log("Running t03_maths.js");
 console.log("Howdie,"+ username);
 console.log("As of " + year + " you are "+ age + " years old");
 console.log("You were born in " + born_age);
