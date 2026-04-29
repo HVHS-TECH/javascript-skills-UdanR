@@ -58,6 +58,6 @@ function Welcomeline(_username, _age, _year, _money, _future_age, _half_money){
 
 }
 
-function Form (_username, _age, _year, _cur)
+function Form (_username, _age, _year, )
 const FORM_NAME = document.getElementById ("form_name");
 var username = FORM_NAME.value;
