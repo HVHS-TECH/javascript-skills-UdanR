@@ -36,7 +36,7 @@ writeline()
 writeline()
 writeline()
 
-
+const FORM_NAME
 /*Welcomeline(username, age, year, money, future_age, half_money)
 */
 /****************************
