@@ -24,10 +24,14 @@
 
   <div id="spaceForJavaScriptOutput">
     <form onsubmit="return false">
-      <input type="text" id="name_input">
-      <input type="text" id="age_input">
-      <input type="text" id="bornyear_input">
-      <input type="text" id="year_input">
+      <label for="name_input">Name</label>
+      <input type="text" id="name_input" name="name_input">
+      <label for="age_input">Age</label>
+      <input type="text" id="age_input" name="age_input">
+      <label for="bornyear_input">Born Year</label>
+      <input type="text" id="bornyear_input" name="bornyear_input">
+      <label for="year_input">Current Year</label>
+      <input type="text" id="year_input" name="year_input">
       <input type="submit" onclick="get">
     </form>
 
