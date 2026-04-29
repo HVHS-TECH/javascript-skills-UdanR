@@ -36,8 +36,7 @@ writeline()
 writeline()
 writeline()
 
-const FORM_NAME = document.getElementById ("form_name");
-var username = FORM_NAME.value;
+
 /*Welcomeline(username, age, year, money, future_age, half_money)
 */
 /****************************
@@ -58,3 +57,7 @@ function Welcomeline(_username, _age, _year, _money, _future_age, _half_money){
     output.innerHTML += "<img src='assets/dtec_favicon.png' alt='Dtech Favicon'>";
 
 }
+
+function Form (_username, _age, _year, _cur)
+const FORM_NAME = document.getElementById ("form_name");
+var username = FORM_NAME.value;
