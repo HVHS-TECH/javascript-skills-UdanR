@@ -29,6 +29,7 @@ console.log("You have $" + money);
 console.log("You spend half of your money, now you have $" + half_money);
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
+Welcomeline()
 output.innerHTML = "<h2>Added By JavaScript</h2>";
 output.innerHTML += "<p>Howide: "+ username + "</p>";
 output.innerHTML += "<p>As of " + year + " you are "+ age + " years old</p>";
@@ -46,4 +47,7 @@ Functions
 ****************************/
 function writeline(){
     output.innerHTML += "<p>Less code Matters</p>";
+}
+function Welcomeline(_name){
+    output.innerHTML += "<h1>Wellcome back, "+_name+"</h1>";
 }
