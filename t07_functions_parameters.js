@@ -48,6 +48,6 @@ Functions
 function writeline(){
     output.innerHTML += "<p>Less code Matters</p>";
 }
-function Welcomeline(_name){
-    output.innerHTML += "<h1>Wellcome back, "+_name+"</h1>";
+function Welcomeline(_username){
+    output.innerHTML += "<h1>Wellcome back, "+_username+"</h1>";
 }
