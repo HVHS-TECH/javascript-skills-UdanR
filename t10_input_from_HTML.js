@@ -58,10 +58,12 @@ function Welcomeline(_username, _age, _year, _money, _future_age, _half_money){
 
 }
 
-function getFormInfo (_username, _age, _year, _born_age)
-const FORM_NAME = document.getElementById ("form_name");
-var username = FORM_NAME.value;
-const FORM_AGE = document.getElementById ("form_name");
-var username = FORM_NAME.value;
-const FORM_YEAR = document.getElementById ("form_name");
-var username = FORM_YEAR.value;
+function getFormInfo (_username, _age, _year, _born_age){
+    const FORM_NAME = document.getElementById ("form_name");
+    var username = FORM_NAME.value;
+    const FORM_AGE = document.getElementById ("form_age");
+    var age = FORM_AGE.value;
+    const FORM_YEAR = document.getElementById ("form_year");
+    var year = FORM_YEAR.value;
+
+}
