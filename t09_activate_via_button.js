@@ -37,7 +37,7 @@ writeline()
 
 
 /*Welcomeline(username, age, year, money, future_age, half_money)
-
+*/
 /****************************
 Functions
 ****************************/
