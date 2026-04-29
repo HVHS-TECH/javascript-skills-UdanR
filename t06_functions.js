@@ -14,7 +14,7 @@ var half_money = money
 /****************************
 Main Code
 ****************************/
-console.log("Running t05_JavaScript_and_HTML.js");
+console.log("Running t06_functions.js");
 console.log(half_money / 2);
 half_money = half_money/2;
 console.log(born_age - age);
