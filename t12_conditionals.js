@@ -6,6 +6,7 @@ Introduction
 // Variables
 var year = 2030
 var money = 0;
+var weekly_wages = 0;
 var fortnightly_wages = 0;
 var month_wages = 0;
 var salary = 0;
@@ -58,7 +59,13 @@ function getFormInfo (){
     output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     } else if (selectedPaymentdays == fortnightly){
-        fortnightly_wages
+        var fortnightly_wages = Number(FORM_WAGES.value);
+        salary = fortnightly_wages*26;
+        weekly_wages = salary/52;
+        month_wages = salary/12;
+        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" foat the end of the month you will have $"+month_wages+"</p>";
+        output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
+
     } else if (selectedPaymentdays == monthly){
 
     } else{
