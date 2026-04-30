@@ -58,7 +58,7 @@ function getFormInfo (){
             var fortnightly_wages = salary/26;
             var tax_money = salary;
 
-    output.innerHTML += "<p>You earn $"+money+"weekly, at the end of the month you will have $"+month_wages+"</p>";
+    output.innerHTML += "<p>You earn $"+money+" weekly, at the end of the month you will have $"+month_wages+"</p>";
     output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     } else if (selectedPaymentdays == "fortnightly"){
@@ -67,7 +67,7 @@ function getFormInfo (){
         var weekly_wages = salary/52;
         var month_wages = salary/12;
         var tax_money = salary;
-        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
+        output.innerHTML += "<p>You earn $"+weekly_wages+" weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     } else if (selectedPaymentdays == "monthly"){
@@ -76,7 +76,7 @@ function getFormInfo (){
         var weekly_wages = salary/52;
         var fortnightly_wages = salary/26;
         var tax_money = salary;
-        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
+        output.innerHTML += "<p>You earn $"+weekly_wages+" weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     } else{
@@ -85,7 +85,7 @@ function getFormInfo (){
         var fortnightly_wages = salary/26;
         var weekly_wages = salary/52;
         var tax_money = salary;
-        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
+        output.innerHTML += "<p>You earn $"+weekly_wages+" weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     }
