@@ -53,7 +53,7 @@ function getFormInfo (){
     const FORM_WAGES = document.getElementById ("wages_input");
     if (selectedPaymentdays == "weekly"){
             var money = Number(FORM_WAGES.value);
-            var tax_money = money;
+            var tax_money = salary;
             var month_wages = (money*52)/12;
             var salary = money*52;
             var fortnightly_wages = salary/26;
@@ -63,7 +63,7 @@ function getFormInfo (){
 
     } else if (selectedPaymentdays == "fortnightly"){
         var fortnightly_wages = Number(FORM_WAGES.value);
-        var tax_money = fortnightly_wages;
+        var tax_money = salary;
         var salary = fortnightly_wages*26;
         var weekly_wages = salary/52;
         var month_wages = salary/12;
@@ -72,7 +72,7 @@ function getFormInfo (){
 
     } else if (selectedPaymentdays == "monthly"){
         var month_wages = Number(FORM_WAGES.value);
-        var tax_money = month_wages;
+        var tax_money = salary;
         var salary = month_wages*12;
         var weekly_wages = salary/52;
         var fortnightly_wages = salary/26;
@@ -89,6 +89,9 @@ function getFormInfo (){
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     }
-    if (tax_money){}
+        output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
+    if (tax_money <= 15600){
+        var taxed_amount = 10.5/100*tax_money;
+    }
 
 }
