@@ -6,6 +6,7 @@ Introduction
 // Variables
 var year = 2030
 var money = 0;
+var tax_money = 0;
 var weekly_wages = 0;
 var fortnightly_wages = 0;
 var month_wages = 0;
@@ -51,6 +52,7 @@ function getFormInfo (){
     const FORM_WAGES = document.getElementById ("wages_input");
     if (selectedPaymentdays == "weekly"){
             var money = Number(FORM_WAGES.value);
+            var tax_money = money;
             var month_wages = (money*52)/12;
             var salary = money*52;
             var fortnightly_wages = salary/26;
@@ -60,6 +62,7 @@ function getFormInfo (){
 
     } else if (selectedPaymentdays == "fortnightly"){
         var fortnightly_wages = Number(FORM_WAGES.value);
+        var tax_money = fortnightly_wages;
         var salary = fortnightly_wages*26;
         var weekly_wages = salary/52;
         var month_wages = salary/12;
@@ -68,6 +71,7 @@ function getFormInfo (){
 
     } else if (selectedPaymentdays == "monthly"){
         var month_wages = Number(FORM_WAGES.value);
+        var tax_money = month_wages;
         var salary = month_wages*12;
         var weekly_wages = salary/52;
         var fortnightly_wages = salary/26;
@@ -76,6 +80,7 @@ function getFormInfo (){
 
     } else{
         var salary = Number(FORM_WAGES.value);
+        var tax_money = salary;
         var month_wages = salary/12;
         var fortnightly_wages = salary/26;
         var weekly_wages = salary/52;
