@@ -63,10 +63,10 @@ function getFormInfo (){
 
     } else if (selectedPaymentdays == "fortnightly"){
         var fortnightly_wages = Number(FORM_WAGES.value);
-        var tax_money = salary;
         var salary = fortnightly_wages*26;
         var weekly_wages = salary/52;
         var month_wages = salary/12;
+        var tax_money = salary;
         output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
