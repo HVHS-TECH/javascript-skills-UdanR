@@ -92,7 +92,7 @@ function getFormInfo (){
     if (tax_money <= 15600){
         var taxed_amount = tax_money*10.5/100;
     } else if (tax_money <=53500){
-        tax_money = tax_money
+        tax_money = tax_money-15600;
         var taxed_amount = 1638
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
