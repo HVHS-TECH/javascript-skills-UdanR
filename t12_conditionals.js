@@ -93,8 +93,13 @@ function getFormInfo (){
         var taxed_amount = tax_money*10.5/100;
     } else if (tax_money <=53500){
         tax_money = tax_money-15600;
-        var taxed_amount = 1638
-    }
+        var taxed_amount = (17.5/100*tax_money)+1638;
+    } else if (tax_money <=78100){
+        tax_money=tax_money-53500;
+        var taxed_amount = (30/100*tax_money)+1638+6632.5;
+    } else if (tax_money <=180000){
+        tax_money=tax_money-53500;
+        var taxed_amount = (30/100*tax_money)+1638+6632.5;
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
 
 }
