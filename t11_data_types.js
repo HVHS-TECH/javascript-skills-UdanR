@@ -7,6 +7,7 @@ Introduction
 var year = 2030
 var money = 0;
 var month_wages = 0;
+var salary = 0;
 var username = "Mr.Legend";
 var age = 22;
 var born_age = year;
@@ -44,8 +45,10 @@ function getFormInfo (){
     const FORM_WAGES = document.getElementById ("wages_input");
     var money = Number(FORM_WAGES.value);
     month_wages = (money*52)/12;
+    salary = money*52;
     output.innerHTML = "<h1>Welcome, "+username+"</h1>";
     output.innerHTML += "<p>In "+year+", You are "+age+" years old</p>";
-    output.innerHTML += "<p>You earn $"+money+"weekly, at the end of the month you will have "+month_wages+"</p>";
+    output.innerHTML += "<p>You earn $"+money+"weekly, at the end of the month you will have $"+month_wages+"</p>";
+    output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
 }
