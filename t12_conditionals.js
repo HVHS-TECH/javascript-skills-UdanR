@@ -42,12 +42,14 @@ function getFormInfo (){
     var age = Number(FORM_AGE.value);
     const FORM_YEAR = document.getElementById ("year_input");
     var year = Number(FORM_YEAR.value);
+    output.innerHTML = "<h1>Welcome, "+username+"</h1>";
+    output.innerHTML += "<p>In "+year+", You are "+age+" years old</p>";
+    if ()
     const FORM_WAGES = document.getElementById ("wages_input");
     var money = Number(FORM_WAGES.value);
     month_wages = (money*52)/12;
     salary = money*52;
-    output.innerHTML = "<h1>Welcome, "+username+"</h1>";
-    output.innerHTML += "<p>In "+year+", You are "+age+" years old</p>";
+
     output.innerHTML += "<p>You earn $"+money+"weekly, at the end of the month you will have $"+month_wages+"</p>";
     output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
