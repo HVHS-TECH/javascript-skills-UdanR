@@ -49,7 +49,7 @@ function getFormInfo (){
     const selectElement = document.getElementById('paymentdays');
     const selectedPaymentdays = selectElement.value;
     const FORM_WAGES = document.getElementById ("wages_input");
-    if (selectedPaymentdays == Weekly){
+    if (selectedPaymentdays == "weekly"){
             var money = Number(FORM_WAGES.value);
             var month_wages = (money*52)/12;
             var salary = money*52;
@@ -57,7 +57,7 @@ function getFormInfo (){
     output.innerHTML += "<p>You earn $"+money+"weekly, at the end of the month you will have $"+month_wages+"</p>";
     output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
-    } else if (selectedPaymentdays == fortnightly){
+    } else if (selectedPaymentdays == "fortnightly"){
         var fortnightly_wages = Number(FORM_WAGES.value);
         var salary = fortnightly_wages*26;
         var weekly_wages = salary/52;
@@ -65,7 +65,7 @@ function getFormInfo (){
         output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
-    } else if (selectedPaymentdays == monthly){
+    } else if (selectedPaymentdays == "monthly"){
         var month_wages = Number(FORM_WAGES.value);
         var salary = month_wages*12;
         var weekly_wages = salary/52;
