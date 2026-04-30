@@ -7,6 +7,7 @@ Introduction
 var year = 2030
 var money = 0;
 var tax_money = 0;
+var taxed_amount = 0;
 var weekly_wages = 0;
 var fortnightly_wages = 0;
 var month_wages = 0;
@@ -88,6 +89,6 @@ function getFormInfo (){
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     }
-    if 
+    if (tax_money){}
 
 }
