@@ -89,9 +89,9 @@ function getFormInfo (){
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     }
-        output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
     if (tax_money <= 15600){
         var taxed_amount = 10.5/100*tax_money;
     }
+        output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
 
 }
