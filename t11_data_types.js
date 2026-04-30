@@ -61,9 +61,9 @@ function getFormInfo (){
     const FORM_NAME = document.getElementById ("name_input");
     var username = FORM_NAME.value;
     const FORM_AGE = document.getElementById ("age_input");
-    var age = number(FORM_AGE.value);
+    var age = Number(FORM_AGE.value);
     const FORM_YEAR = document.getElementById ("year_input");
-    var year = number(FORM_YEAR.value);
+    var year = Number(FORM_YEAR.value);
     output.innerHTML = "<h1>Welcome, "+username+"</h1>";
     output.innerHTML += "<p>In "+year+", You are "+age+" years old</p>";
 
