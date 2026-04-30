@@ -98,8 +98,12 @@ function getFormInfo (){
         tax_money=tax_money-53500;
         var taxed_amount = (30/100*tax_money)+1638+6632.5;
     } else if (tax_money <=180000){
-        tax_money=tax_money-53500;
-        var taxed_amount = (30/100*tax_money)+1638+6632.5;
+        tax_money=tax_money-78100;
+        var taxed_amount = (33/100*tax_money)+1638+6632.5+7380;
+    } else {
+        tax_money=tax_money-180000;
+        var taxed_amount = (39/100*tax_money)+1638+6632.5+7380+33627;
+    }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
 
 }
