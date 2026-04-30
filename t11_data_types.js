@@ -59,11 +59,11 @@ function Welcomeline(_username, _age, _year, _money, _future_age, _half_money){
 
 function getFormInfo (){
     const FORM_NAME = document.getElementById ("name_input");
-    var username = string(FORM_NAME.value);
+    var username = FORM_NAME.value;
     const FORM_AGE = document.getElementById ("age_input");
-    var age = number(FORM_AGE.value);
+    var age = FORM_AGE.value;
     const FORM_YEAR = document.getElementById ("year_input");
-    var year = number(FORM_YEAR.value);
+    var year = FORM_YEAR.value;
     output.innerHTML = "<h1>Welcome, "+username+"</h1>";
     output.innerHTML += "<p>In "+year+", You are "+age+" years old</p>";
 
