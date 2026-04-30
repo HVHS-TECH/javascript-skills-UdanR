@@ -7,7 +7,7 @@ Introduction
 var year = 2030
 var username = "Mr.Legend";
 var age = 22;
-var money = 10;
+var money = 10
 var born_age = year;
 var future_age = year;
 var half_money = money;
