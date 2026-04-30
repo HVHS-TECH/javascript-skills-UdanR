@@ -63,13 +63,24 @@ function getFormInfo (){
         salary = fortnightly_wages*26;
         weekly_wages = salary/52;
         month_wages = salary/12;
-        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" foat the end of the month you will have $"+month_wages+"</p>";
+        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     } else if (selectedPaymentdays == monthly){
+        var month_wages = Number(FORM_WAGES.value);
+        salary = month_wages*12;
+        weekly_wages = salary/52;
+        fortnightly_wages = salary/26;
+        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
+        output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     } else{
-
+        var salary = Number(FORM_WAGES.value);
+        month_wages = salary/12;
+        fortnightly_wages = salary/26;
+        weekly_wages = salary/52;
+        output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
+        output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
     }
 
 }
