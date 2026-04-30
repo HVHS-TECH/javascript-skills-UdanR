@@ -79,7 +79,5 @@ function getFormInfo (){
         var fortnightly_wages = salary/26;
         var weekly_wages = salary/52;
     }
-    output.innerHTML += "<p>You earn $"+weekly_wages+"weekly, $"+fortnightly_wages+" fortnightly and at the end of the month you will have $"+month_wages+"</p>";
-    output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
 }
