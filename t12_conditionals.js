@@ -53,6 +53,7 @@ function getFormInfo (){
             var money = Number(FORM_WAGES.value);
             var month_wages = (money*52)/12;
             var salary = money*52;
+            var fortnightly_wages = salary/26;
 
     output.innerHTML += "<p>You earn $"+money+"weekly, at the end of the month you will have $"+month_wages+"</p>";
     output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
@@ -82,5 +83,6 @@ function getFormInfo (){
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     }
+    if 
 
 }
