@@ -112,3 +112,5 @@ function getFormInfo (){
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
         output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
+
+function calculateChange (){}
