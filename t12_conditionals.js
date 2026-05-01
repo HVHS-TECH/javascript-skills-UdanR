@@ -16,6 +16,7 @@ var username = "Mr.Legend";
 var age = 22;
 var born_age = year;
 var future_age = year;
+var price = 0;
 
 /****************************
 Main Code
@@ -113,4 +114,6 @@ function getFormInfo (){
         output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
 
-function calculateChange (){}
+function calculateChange (){
+    output.innerHTML += "<p>You will get $"+afterTax+" change.</p>";
+}
