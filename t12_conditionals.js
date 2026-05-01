@@ -17,6 +17,7 @@ var age = 22;
 var born_age = year;
 var future_age = year;
 var price = 0;
+var change = 0;
 
 /****************************
 Main Code
@@ -114,6 +115,22 @@ function getFormInfo (){
         output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
 
+const selectElement = document.getElementById('spendingfrequency');
+const selectedSpendingfrequency = selectElement.value;
 function calculateChange (){
-    output.innerHTML += "<p>You will get $"+afterTax+" change.</p>";
+    if (selectedSpendingfrequency == "weekly"){
+        change = money-price;
+        return change;
+
+    } else if (selectedSpendingfrequency == "fortnightly"){
+        change = fortnightly_wages-price;
+        return change;
+    } else if (selectedSpendingfrequency == "monthly"){
+        change = month_wages-price;
+        return change;
+    } else{
+        change = salary-price;
+        return change;
 }
+}
+    output.innerHTML += "<p>You will get $"+change+" change.</p>";

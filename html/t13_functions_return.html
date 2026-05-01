@@ -45,22 +45,15 @@
 
   </div>
     <form onsubmit="return false">
-      <label for="form_name">Name</label>
-      <input type="text" id="name_input" name="form_name">
-      <label for="form_age">Age</label>
-      <input type="text" id="age_input" name="form_age">
-      <label for="form_year">Current Year</label>
-      <input type="text" id="year_input" name="form_year">
-      <label for="form_paymentdays">How frequenty do you get paid:</label>
-      <select id="paymentdays">
+      <select id="spendingfrequency">
        <option value="weekly">weekly</option>
        <option value="fortnightly">fortnightly</option>
        <option value="monthly">monthly</option>
        <option value="yearly">yearly</option>
       </select>
-      <label for="form_year">Earnings</label>
-      <input type="text" id="wages_input" name="form_wages">
-      <input type="submit" onclick="getFormInfo()">
+      <label for="spendingamount">Spending Amount</label>
+      <input type="text" id="spendingamount_input" name="form_spendingamount">
+      <input type="submit" onclick="calculateChange()">
     </form>
 
 
