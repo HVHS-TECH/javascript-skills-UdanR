@@ -20,7 +20,7 @@ var future_age = year;
 /****************************
 Main Code
 ****************************/
-console.log("Running t11_data_types.js");
+console.log("Running t12_data_types.js");
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
 
