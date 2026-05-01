@@ -91,20 +91,24 @@ function getFormInfo (){
     }
     if (tax_money <= 15600){
         var taxed_amount = tax_money*10.5/100;
+        var afterTax = (tax_money - taxed_amount);
     } else if (tax_money <=53500){
         tax_money = tax_money-15600;
         var taxed_amount = (17.5/100*tax_money)+1638;
+        var afterTax = (tax_money - taxed_amount);
     } else if (tax_money <=78100){
         tax_money=tax_money-53500;
         var taxed_amount = (30/100*tax_money)+1638+6632.5;
+        var afterTax = (tax_money - taxed_amount);
     } else if (tax_money <=180000){
         tax_money=tax_money-78100;
         var taxed_amount = (33/100*tax_money)+1638+6632.5+7380;
+        var afterTax = (tax_money - taxed_amount);
     } else {
         tax_money=tax_money-180000;
         var taxed_amount = (39/100*tax_money)+1638+6632.5+7380+33627;
-        
+        var afterTax = (tax_money - taxed_amount);
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
-
+        output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
