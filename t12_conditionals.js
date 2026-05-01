@@ -114,7 +114,7 @@ function getFormInfo (){
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
         output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
-
+const outputChange = document.getElementById ("changearea");
 const selectElement = document.getElementById('spendingfrequency');
 const selectedSpendingfrequency = selectElement.value;
 function calculateChange (){
@@ -133,4 +133,4 @@ function calculateChange (){
         return change;
 }
 }
-    output.innerHTML += "<p>You will get $"+change+" change.</p>";
+    outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
