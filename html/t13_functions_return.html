@@ -18,14 +18,50 @@
 <body>
   <h1>T13-functions with return values</h1>
   <p>Open the console <code>(Ctrl-shift-i)</code> to see the messages.</p>
-
-  <p><br><br><i>Copy your HTML from the last task and keep building.</i><br><br><br><br></p>
+   
+  <form onsubmit="return false">
+      <label for="form_name">Name</label>
+      <input type="text" id="name_input" name="form_name">
+      <label for="form_age">Age</label>
+      <input type="text" id="age_input" name="form_age">
+      <label for="form_year">Current Year</label>
+      <input type="text" id="year_input" name="form_year">
+      <label for="form_paymentdays">How frequenty do you get paid:</label>
+      <select id="paymentdays">
+       <option value="weekly">weekly</option>
+       <option value="fortnightly">fortnightly</option>
+       <option value="monthly">monthly</option>
+       <option value="yearly">yearly</option>
+      </select>
+      <label for="form_year">Earnings</label>
+      <input type="text" id="wages_input" name="form_wages">
+      <input type="submit" onclick="getFormInfo()">
+    </form>
 
   <div id="spaceForJavaScriptOutput">
 
     The output of your script will go here.
+  <p><br><br><i>Copy your HTML from the last task and keep building.</i><br><br><br><br></p>
 
   </div>
+    <form onsubmit="return false">
+      <label for="form_name">Name</label>
+      <input type="text" id="name_input" name="form_name">
+      <label for="form_age">Age</label>
+      <input type="text" id="age_input" name="form_age">
+      <label for="form_year">Current Year</label>
+      <input type="text" id="year_input" name="form_year">
+      <label for="form_paymentdays">How frequenty do you get paid:</label>
+      <select id="paymentdays">
+       <option value="weekly">weekly</option>
+       <option value="fortnightly">fortnightly</option>
+       <option value="monthly">monthly</option>
+       <option value="yearly">yearly</option>
+      </select>
+      <label for="form_year">Earnings</label>
+      <input type="text" id="wages_input" name="form_wages">
+      <input type="submit" onclick="getFormInfo()">
+    </form>
 
 
   <script src="../t13_functions_return.js"></script>
