@@ -20,7 +20,7 @@ var future_age = year;
 /****************************
 Main Code
 ****************************/
-console.log("Running t12_data_types.js");
+console.log("Running t12_conditional.js");
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
 
@@ -103,6 +103,7 @@ function getFormInfo (){
     } else {
         tax_money=tax_money-180000;
         var taxed_amount = (39/100*tax_money)+1638+6632.5+7380+33627;
+        
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
 
