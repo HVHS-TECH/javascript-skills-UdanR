@@ -116,7 +116,7 @@ function getFormInfo (){
         output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
 const outputChange = document.getElementById ("changearea");
-const selectElement = document.getElementById('spendingfrequency');
+const selectElement_spending = document.getElementById('spendingfrequency');
 const FORM_WAGES = document.getElementById ("wages_input");
 function calculateChange (){
     const Spendingamount_input = selectElement.value;
