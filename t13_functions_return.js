@@ -117,9 +117,9 @@ function getFormInfo (){
 }
 const outputChange = document.getElementById ("changearea");
 const selectElement_spending = document.getElementById('spendingfrequency');
-const FORM_WAGES = document.getElementById ("wages_input");
+    const FORM_WAGES = document.getElementById ("wages_input");
 function calculateChange (){
-    const Spendingamount_input = selectElement.value;
+    const selectedSpendingfrequency = selectElement_spending.value;
     if (selectedSpendingfrequency == "weekly"){
         change = Number(afterTax-price);
         console.log ("price "+price);
