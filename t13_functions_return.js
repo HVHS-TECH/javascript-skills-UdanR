@@ -134,3 +134,5 @@ function calculateChange (){
 }
 }
     outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
+
+    
