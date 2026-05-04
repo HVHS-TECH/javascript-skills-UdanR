@@ -18,7 +18,7 @@ var born_age = year;
 var future_age = year;
 var price = 0;
 var change = 0;
-
+var chocolatePrice
 /****************************
 Main Code
 ****************************/
