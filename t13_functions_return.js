@@ -119,18 +119,21 @@ const selectedSpendingfrequency = selectElement.value;
 function calculateChange (){
     if (selectedSpendingfrequency == "weekly"){
         change = afterTax-price;
-        return change;
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
+        return change;
 
 
     } else if (selectedSpendingfrequency == "fortnightly"){
         change = afterTax-price;
+        outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
     } else if (selectedSpendingfrequency == "monthly"){
         change = afterTax-price;
+        outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
     } else{
         change = afterTax-price;
+        outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
 }
 }
