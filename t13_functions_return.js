@@ -115,8 +115,8 @@ function getFormInfo (){
 }
 const outputChange = document.getElementById ("changearea");
 const selectElement = document.getElementById('spendingfrequency');
-const selectedSpendingfrequency = selectElement.value;
 function calculateChange (){
+    const selectedSpendingfrequency = selectElement.value;
     if (selectedSpendingfrequency == "weekly"){
         change = afterTax-price;
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
