@@ -119,7 +119,7 @@ const outputChange = document.getElementById ("changearea");
 const selectElement_spending = document.getElementById('spendingfrequency');
 function calculateChange (){
     const spendingamount_Input = document.getElementById ("spendingamount_input");
-    price = Number(spendingamount_Input);
+    price = Number(spendingamount_Input.value);
     const selectedSpendingfrequency = selectElement_spending.value;
     if (selectedSpendingfrequency == "weekly"){
         change = Number(afterTax-price);
