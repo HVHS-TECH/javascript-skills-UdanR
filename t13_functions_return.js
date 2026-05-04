@@ -117,15 +117,15 @@ function getFormInfo (){
 }
 const outputChange = document.getElementById ("changearea");
 const selectElement = document.getElementById('spendingfrequency');
-function calculateChange (_afterTax, _price, _change){
+function calculateChange (){
     const selectedSpendingfrequency = selectElement.value;
     if (selectedSpendingfrequency == "weekly"){
-        change = _afterTax-_price;
-        console.log (_price);
-        console.log (_afterTax);
-        console.log (_change);
-        outputChange.innerHTML += "<p>You will get $"+_change+" change.</p>";
-        return _change;
+        change = afterTax-price;
+        console.log ("price "+price);
+        console.log ("aftertax "+afterTax);
+        console.log ("change "+change);
+        outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
+        return change;
 
     } else if (selectedSpendingfrequency == "fortnightly"){
         change = afterTax-price;
