@@ -110,21 +110,22 @@ function getFormInfo (){
         tax_money=tax_money-180000;
         var taxed_amount = (39/100*tax_money)+1638+6632.5+7380+33627;
         var afterTax = (tax_money - taxed_amount);
+        return taxed_amount;
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
         output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
 const outputChange = document.getElementById ("changearea");
 const selectElement = document.getElementById('spendingfrequency');
-function calculateChange (){
+function calculateChange (_afterTax, _price, _change){
     const selectedSpendingfrequency = selectElement.value;
     if (selectedSpendingfrequency == "weekly"){
-        change = afterTax-price;
-        console.log (price);
-        console.log (afterTax);
-        console.log (change);
-        outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
-        return change;
+        change = _afterTax-_price;
+        console.log (_price);
+        console.log (_afterTax);
+        console.log (_change);
+        outputChange.innerHTML += "<p>You will get $"+_change+" change.</p>";
+        return _change;
 
     } else if (selectedSpendingfrequency == "fortnightly"){
         change = afterTax-price;
