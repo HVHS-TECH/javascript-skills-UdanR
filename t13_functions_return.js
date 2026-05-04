@@ -122,7 +122,6 @@ function calculateChange (){
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
 
-
     } else if (selectedSpendingfrequency == "fortnightly"){
         change = afterTax-price;
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
