@@ -119,6 +119,9 @@ function calculateChange (){
     const selectedSpendingfrequency = selectElement.value;
     if (selectedSpendingfrequency == "weekly"){
         change = afterTax-price;
+        console.log (price);
+        console.log (afterTax);
+        console.log (change);
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
 
