@@ -113,25 +113,26 @@ function getFormInfo (){
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
         output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
-const outputChange = document.getElementById ("changearea");
+const outputChange = document.getElementById ('changearea');
 const selectElement = document.getElementById('spendingfrequency');
 const selectedSpendingfrequency = selectElement.value;
 function calculateChange (){
     if (selectedSpendingfrequency == "weekly"){
-        change = money-price;
+        change = afterTax-price;
         return change;
+        outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
+
 
     } else if (selectedSpendingfrequency == "fortnightly"){
-        change = fortnightly_wages-price;
+        change = afterTax-price;
         return change;
     } else if (selectedSpendingfrequency == "monthly"){
-        change = month_wages-price;
+        change = afterTax-price;
         return change;
     } else{
-        change = salary-price;
+        change = afterTax-price;
         return change;
 }
 }
-    outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
 
     
