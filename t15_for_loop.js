@@ -158,7 +158,9 @@ function reply_choco_rating(){
     Chocolate_Rating.innerHTML = ratingArray[rating];
 
 }
-const Chocolate_Rating = document.getElementById ("Chocolate_Rating_Area");
+
+
+const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
 function Printmilksong() {
     for (var count = Starting_Number; count > 0; count-- ){
         Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>"
