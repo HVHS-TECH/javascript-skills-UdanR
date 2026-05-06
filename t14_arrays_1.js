@@ -152,8 +152,9 @@ function calculateChange (){
 const Chocolate_Rating = document.getElementById ("Chocolate_Rating_Area");
 
 function reply_choco_rating(){
+    const choco_Rating = document.getElementById ("choco_rating");
     var ratingArray = ["You loath chocolate","Chocolate is meh","Chocolate is pretty good","Chocolate is the best thing EVER!!!!" ]
-    var rating = Number(reply_choco_rating.value);
+    var rating = Number(choco_Rating.value);
     Chocolate_Rating.innerHTML = ratingArray[rating];
 
 }
