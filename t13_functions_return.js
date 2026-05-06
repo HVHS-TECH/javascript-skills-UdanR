@@ -113,7 +113,6 @@ function getFormInfo (){
         return taxed_amount;
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
-        output.innerHTML += "<p>After tax you will have $"+afterTax+"</p>";
 }
 const outputChange = document.getElementById ("changearea");
 const selectElement_spending = document.getElementById('spendingfrequency');
