@@ -179,9 +179,8 @@ function List_adding() {
     console.log();
     var list_Array = [Adding_Item];
     list_Array.push()
-    for (var count=count; count > -1; count-- ){
-
-        Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
+    for (var Items=0; Items < list_Array.length; Items++ ){
+        List_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
         console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
     }
 }
