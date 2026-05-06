@@ -177,7 +177,9 @@ function List_adding() {
     List_Area.innerHTML = ""
     const Adding_Item = document.getElementById ("Item_name");
     console.log();
+    var list_Array = [];
     for (var count=count; count > -1; count-- ){
+
         Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
         console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
     }
