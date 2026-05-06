@@ -23,7 +23,7 @@ var orginal_money= 0;
 /****************************
 Main Code
 ****************************/
-console.log("Running t14_arrays_1.js");
+console.log("Running t15_for_loop.js");
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
 
