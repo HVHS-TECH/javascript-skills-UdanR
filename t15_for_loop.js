@@ -162,9 +162,10 @@ function reply_choco_rating(){
 
 const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
 function Printmilksong() {
+        Lyrics_Area.innerHTML = ""
     const Starting_Number = document.getElementById (Starting_number.value);
     for (var count = Number(Starting_Number); count > -1; count-- ){
-        Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>"
-        console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around")
+        Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
+        console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
     }
 }
