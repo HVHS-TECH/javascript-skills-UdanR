@@ -23,7 +23,7 @@ var orginal_money= 0;
 /****************************
 Main Code
 ****************************/
-console.log("Running t12_conditional.js");
+console.log("Running t14_arrays_1.js");
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
 
@@ -148,6 +148,10 @@ function calculateChange (){
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
 }
+}
+
+function reply_choco_rating(){
+    var ratingArray = ["You loath chocolate","Chocolate is meh","Chocolate is pretty good","Chocolate is the best thing EVER!!!!" ]
 }
 
     

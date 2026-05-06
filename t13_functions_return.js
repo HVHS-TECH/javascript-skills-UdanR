@@ -23,7 +23,7 @@ var orginal_money= 0;
 /****************************
 Main Code
 ****************************/
-console.log("Running t12_conditional.js");
+console.log("Running t13_function_return.js");
 
 const output = document.getElementById ("spaceForJavaScriptOutput");
 
