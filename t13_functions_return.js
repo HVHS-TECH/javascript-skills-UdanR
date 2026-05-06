@@ -19,6 +19,7 @@ var future_age = year;
 var price = 0;
 var change = 0;
 var afterTax = 0;
+var orginal_money= 0;
 /****************************
 Main Code
 ****************************/
@@ -92,26 +93,26 @@ function getFormInfo (){
 
     }
     if (tax_money <= 15600){
+        orginal_money = tax_money;
         var taxed_amount = tax_money*10.5/100;
          afterTax = (tax_money - taxed_amount);
     } else if (tax_money <=53500){
-        var orginal_money = tax_money;
+        orginal_money = tax_money;
         tax_money = tax_money-15600;
-        var orginal_money = tax_money;
         var taxed_amount = (17.5/100*tax_money)+1638;
          afterTax = (orginal_money - taxed_amount);
     } else if (tax_money <=78100){
-        var orginal_money = tax_money;
+        orginal_money = tax_money;
         tax_money=tax_money-53500;
         var taxed_amount = (30/100*tax_money)+1638+6632.5;
          afterTax = (orginal_money - taxed_amount);
     } else if (tax_money <=180000){
-        var orginal_money = tax_money;
+        orginal_money = tax_money;
         tax_money=tax_money-78100;
         var taxed_amount = (33/100*tax_money)+1638+6632.5+7380;
          afterTax = (orginal_money - taxed_amount);
     } else {
-        var orginal_money = tax_money;
+        orginal_money = tax_money;
         tax_money=tax_money-180000;
         var taxed_amount = (39/100*tax_money)+1638+6632.5+7380+33627;
          afterTax = (orginal_money - taxed_amount);
