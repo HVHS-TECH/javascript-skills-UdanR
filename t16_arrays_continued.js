@@ -176,8 +176,8 @@ function List_adding() {
     const List_Area = document.getElementById ("List_Print_Area");
     List_Area.innerHTML = ""
     const Adding_Item = document.getElementById ("Item_name");
-    console.log();
-    var list_Array = [Adding_Item];
+    console.log(Adding_Item);
+    var list_Array = [];
     list_Array.push(Adding_Item);
     for (var Items=0; Items < list_Array.length; Items++ ){
         List_Area.innerHTML += "Item "+ Items+ ": "+ list_Array[Items]+"<br>";
