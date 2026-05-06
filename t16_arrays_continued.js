@@ -180,7 +180,7 @@ function List_adding() {
     var list_Array = [Adding_Item];
     list_Array.push()
     for (var Items=0; Items < list_Array.length; Items++ ){
-        List_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
-        console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
+        List_Area.innerHTML += "Item "+ Items+ ": "+ list_Array[Items]+"<br>";
+        console.log ("Item "+ Items+ ": "+ list_Array[Items]+");
     }
 }
