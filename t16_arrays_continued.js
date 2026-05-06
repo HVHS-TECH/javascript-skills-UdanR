@@ -171,3 +171,14 @@ function Printmilksong() {
         console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
     }
 }
+
+function List_adding() {
+    const List_Area = document.getElementById ("List_Print_Area");
+    List_Area.innerHTML = ""
+    const Adding_Item = document.getElementById ("Item_name");
+    console.log();
+    for (var count=count; count > -1; count-- ){
+        Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
+        console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
+    }
+}
