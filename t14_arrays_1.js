@@ -152,6 +152,8 @@ function calculateChange (){
 
 function reply_choco_rating(){
     var ratingArray = ["You loath chocolate","Chocolate is meh","Chocolate is pretty good","Chocolate is the best thing EVER!!!!" ]
+    var rating = Number(reply_choco_rating.value);
+    
 }
 
     
