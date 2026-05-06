@@ -178,9 +178,9 @@ function List_adding() {
     const Adding_Item = document.getElementById ("Item_name");
     console.log();
     var list_Array = [Adding_Item];
-    list_Array.push()
+    list_Array.push(Adding_Item);
     for (var Items=0; Items < list_Array.length; Items++ ){
         List_Area.innerHTML += "Item "+ Items+ ": "+ list_Array[Items]+"<br>";
-        console.log ("Item "+ Items+ ": "+ list_Array[Items]+");
+        console.log ("Item "+ Items+ ": "+ list_Array[Items]);
     }
 }
