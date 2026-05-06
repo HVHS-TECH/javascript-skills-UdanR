@@ -117,6 +117,7 @@ function getFormInfo (){
          afterTax = (orginal_money - taxed_amount);
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
+        output.innerHTML += "<p>You will have $"+afterTax+" after tax</p>";
 }
 const outputChange = document.getElementById ("changearea");
 const selectElement_spending = document.getElementById('spendingfrequency');
@@ -129,6 +130,7 @@ function calculateChange (){
         console.log ("price "+price);
         console.log ("aftertax "+afterTax);
         console.log ("change "+change);
+        console.log ("orginal_money "+orginal_money);
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
 
