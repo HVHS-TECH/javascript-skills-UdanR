@@ -163,8 +163,10 @@ function reply_choco_rating(){
 function Printmilksong() {
     const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
     Lyrics_Area.innerHTML = ""
-    const starting_Number = document.getElementById ("Starting_number.value");
-    for (var count = Number(starting_Number.value); count > -1; count-- ){
+    const starting_Number = document.getElementById ("Starting_number");
+    var count = Number(starting_Number.value);
+    console.log("count " + count);
+    for (var count=count; count > -1; count-- ){
         Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
         console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
     }
