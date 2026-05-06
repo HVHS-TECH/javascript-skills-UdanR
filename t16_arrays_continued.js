@@ -175,7 +175,7 @@ function Printmilksong() {
 function List_adding() {
     const List_Area = document.getElementById ("List_Print_Area");
     List_Area.innerHTML = ""
-    const Adding_Item = document.getElementById ("Item_name");
+    const Adding_Item = document.getElementById (Item_name.value);
     console.log(Adding_Item);
     var list_Array = [];
     list_Array.push(Adding_Item);
