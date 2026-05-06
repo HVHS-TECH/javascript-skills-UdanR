@@ -160,9 +160,9 @@ function reply_choco_rating(){
 }
 
 
-const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
 function Printmilksong() {
-        Lyrics_Area.innerHTML = ""
+    const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
+    Lyrics_Area.innerHTML = ""
     const starting_Number = document.getElementById (Starting_number.value);
     for (var count = Number(starting_Number.value); count > -1; count-- ){
         Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
