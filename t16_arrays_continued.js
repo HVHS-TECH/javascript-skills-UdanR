@@ -178,6 +178,7 @@ function List_adding() {
     List_Area.innerHTML = ""
     const Adding_Item = document.getElementById ("Item_name");
     var Add_Item = String(Adding_Item.value);
+    List_Area.innerHTML += Add_Item + "Succecsully Added to the list"
     console.log(Add_Item);
     list_Array.push(Add_Item);
     for (var Items=0; Items < list_Array.length; Items++ ){
