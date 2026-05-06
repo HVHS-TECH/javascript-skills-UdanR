@@ -175,10 +175,11 @@ function Printmilksong() {
 function List_adding() {
     const List_Area = document.getElementById ("List_Print_Area");
     List_Area.innerHTML = ""
-    const Adding_Item = document.getElementById (Item_name.value);
-    console.log(Adding_Item);
+    const Adding_Item = document.getElementById (Item_name);
+    var Add_Item = String(Adding_Item);
+    console.log(Add_Item);
     var list_Array = [];
-    list_Array.push(Adding_Item);
+    list_Array.push(Add_Item);
     for (var Items=0; Items < list_Array.length; Items++ ){
         List_Area.innerHTML += "Item "+ Items+ ": "+ list_Array[Items]+"<br>";
         console.log ("Item "+ Items+ ": "+ list_Array[Items]);
