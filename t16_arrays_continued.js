@@ -177,7 +177,8 @@ function List_adding() {
     List_Area.innerHTML = ""
     const Adding_Item = document.getElementById ("Item_name");
     console.log();
-    var list_Array = [];
+    var list_Array = [Adding_Item];
+    list_Array.push()
     for (var count=count; count > -1; count-- ){
 
         Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
