@@ -42,13 +42,14 @@ function writeline(){
     output.innerHTML += "<p>Less code Matters</p>";
 }
 
-function getFormInfo (){
+function getFormInfo (event){
     const FORM_NAME = document.getElementById ("name_input");
     var username = FORM_NAME.value;
     console.log (username);
     console.log (username.length);
     if (username.length < 3) {
-  alert("Error: Username is too short!");
+        event.
+  alert("Error: Username is too short! Username must be 3 letters or longer");
 }
     const FORM_AGE = document.getElementById ("age_input");
     var age = Number(FORM_AGE.value);
