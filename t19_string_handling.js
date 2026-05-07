@@ -51,7 +51,8 @@ function getFormInfo (event){
         event.preventDefault();
         alert("Too short username");
         return;
-    } else {
+    } 
+    
     const FORM_AGE = document.getElementById ("age_input");
     var age = Number(FORM_AGE.value);
     const FORM_YEAR = document.getElementById ("year_input");
