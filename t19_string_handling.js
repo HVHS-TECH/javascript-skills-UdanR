@@ -44,10 +44,10 @@ function writeline(){
 
 function getFormInfo (){
     const FORM_NAME = document.getElementById ("name_input");
-    if (username.value<3){
+    if (FORM_NAME.value<3){
         event.preventDefault;
         alert("Too short username");
-    }
+    } else {
     var username = FORM_NAME.value;
     const FORM_AGE = document.getElementById ("age_input");
     var age = Number(FORM_AGE.value);
@@ -96,6 +96,7 @@ function getFormInfo (){
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     }
+}
     if (tax_money <= 15600){
         orginal_money = tax_money;
         var taxed_amount = tax_money*10.5/100;
