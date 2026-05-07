@@ -99,7 +99,6 @@ function getFormInfo (event){
         output.innerHTML += "<p>You'er salary would be $"+salary+"</p>";
 
     }
-}
     if (tax_money <= 15600){
         orginal_money = tax_money;
         var taxed_amount = tax_money*10.5/100;
@@ -127,6 +126,7 @@ function getFormInfo (event){
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
         output.innerHTML += "<p>You will have $"+afterTax+" after tax</p>";
+}
 }
 const outputChange = document.getElementById ("changearea");
 const selectElement_spending = document.getElementById('spendingfrequency');
