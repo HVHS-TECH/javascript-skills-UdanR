@@ -47,12 +47,6 @@ function getFormInfo (event){
     var username = FORM_NAME.value;
     console.log ("Username value"+username);
     console.log ("Username Lenght"+username.length);
-    if (username.length < 3) {
-        alert("Too short username");
-        event.preventDefault();
-        return;
-    }
-
     const FORM_AGE = document.getElementById ("age_input");
     var age = Number(FORM_AGE.value);
     const FORM_YEAR = document.getElementById ("year_input");
