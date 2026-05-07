@@ -18,7 +18,7 @@
 <body>
   <h1>T19-string handling</h1>
   <p>Open the console <code>(Ctrl-shift-i)</code> to see the messages.</p>
-  <form onsubmit="return false">
+  <form onsubmit="getFormInfo(event) return false">
       <label for="form_name">Name</label>
       <input type="text" id="name_input" name="form_name" minlength="3">
       <label for="form_age">Age</label>
@@ -34,7 +34,7 @@
       </select>
       <label for="form_year">Earnings</label>
       <input type="text" id="wages_input" name="form_wages">
-      <input type="submit" onclick="getFormInfo(event)">
+      <input type="submit" onclick="getFormInfo()">
     </form>
 
   <div id="spaceForJavaScriptOutput">
