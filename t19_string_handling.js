@@ -45,6 +45,8 @@ function writeline(){
 function getFormInfo (event){
     const FORM_NAME = document.getElementById ("name_input");
     var username = FORM_NAME.value;
+    console.log ("Username value"+username);
+    console.log ("Username Lenght"+username.length);
     if (username.length< 3){
         event.preventDefault();
         alert("Too short username");
