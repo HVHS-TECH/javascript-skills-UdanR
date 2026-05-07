@@ -44,10 +44,11 @@ function writeline(){
 
 function getFormInfo (){
     const FORM_NAME = document.getElementById ("name_input");
-    var username = String(FORM_NAME.value);
-    if (username.value< 3){
+    var username = FORM_NAME.value;
+    if (username.length< 3){
         event.preventDefault;
         alert("Too short username");
+        return;
     } else {
     const FORM_AGE = document.getElementById ("age_input");
     var age = Number(FORM_AGE.value);
