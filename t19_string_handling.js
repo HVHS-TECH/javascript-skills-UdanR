@@ -42,11 +42,11 @@ function writeline(){
     output.innerHTML += "<p>Less code Matters</p>";
 }
 
-function getFormInfo (){
+function getFormInfo (event){
     const FORM_NAME = document.getElementById ("name_input");
     var username = FORM_NAME.value;
     if (username.length< 3){
-        event.preventDefault;
+        event.preventDefault();
         alert("Too short username");
         return;
     } else {
