@@ -6,7 +6,7 @@ Introduction
 
 // Variables
 var year = 2030;
-var users = [{name: "Mr.Legend", age: 22, salary: 0}];
+var users = [{name: "Mr.Legend", age: 22, grossincome: 0, netincome: 0}];
 var money = 0;
 var tax_money = 0;
 var taxed_amount = 0;
@@ -144,6 +144,7 @@ function getFormInfo (){
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
         output.innerHTML += "<p>You will have $"+afterTax+" after tax</p>";
+        users.push({name: username, age: age, grossincome: salary, netincome: afterTax});
 }
 
 const outputChange = document.getElementById ("changearea");
