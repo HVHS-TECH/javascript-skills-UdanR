@@ -6,7 +6,7 @@ Introduction
 
 // Variables
 var year = 2030;
-var users = [{name: "Mr.Legend", age: 22, grossincome: 0, netincome: 0, Chocolate_Rating: 0}];
+var users = [{name: username, age: age, grossincome: salary, netincome: 0, Chocolate_Rating: 0}];
 var money = 0;
 var tax_money = 0;
 var taxed_amount = 0;
