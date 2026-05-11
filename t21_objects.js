@@ -185,7 +185,7 @@ function reply_choco_rating(){
     Chocolate_Rating.innerHTML = ratingArray[rating];
     users.push({Chocolate_Rating: ratingArray[rating]});
     for (var i=0; i < users.length; i++ ){
-    console.log("users"+i+": "+users[i].name+", "+users[i].age+" years old, Gross Income: $"+users[i].grossincome+", Net Income: $"+users[i].netincome+", Chocolate Rating: "+users[i].Chocolate_Rating);
+    console.log("users"+i+"is "+users[i].name+", "+users[i].age+" years old, Gross Income: $"+users[i].grossincome+", Net Income: $"+users[i].netincome+", Chocolate Rating: "+users[i].Chocolate_Rating);
 }
 }
 
