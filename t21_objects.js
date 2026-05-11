@@ -144,7 +144,6 @@ function getFormInfo (){
     }
         output.innerHTML += "<p>You're tax is $"+taxed_amount+"</p>";
         output.innerHTML += "<p>You will have $"+afterTax+" after tax</p>";
-        users.push({name: username, age: age, grossincome: salary, netincome: afterTax});
 }
 
 const outputChange = document.getElementById ("changearea");
@@ -183,7 +182,8 @@ function reply_choco_rating(){
     var ratingArray = ["You loath chocolate","Chocolate is meh","Chocolate is pretty good","Chocolate is the best thing EVER!!!!" ]
     var rating = Number(choco_Rating.value);
     Chocolate_Rating.innerHTML = ratingArray[rating];
-    users.push({Chocolate_Rating: ratingArray[rating]});
+
+    users.push({name: username, age: age, grossincome: salary, netincome: afterTax,Chocolate_Rating: ratingArray[rating]});
     for (var i=0; i < users.length; i++ ){
     console.log("users"+i+"is "+users[i].name+", "+users[i].age+" years old, Gross Income: $"+users[i].grossincome+", Net Income: $"+users[i].netincome+", Chocolate Rating: "+users[i].Chocolate_Rating);
 }
