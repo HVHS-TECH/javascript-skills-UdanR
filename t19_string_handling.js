@@ -33,8 +33,6 @@ writeline()
 writeline()
 
 
-/*Welcomeline(username, age, year, money, future_age, half_money)
-*/
 /****************************
 Functions
 ****************************/
@@ -53,6 +51,13 @@ function getFormInfo (){
 }
     const FORM_AGE = document.getElementById ("age_input");
     var age = Number(FORM_AGE.value);
+    if (age < 6){
+        alert("Erro: Too Young, need to be aleast 6 years old");
+        return;
+    }
+    if (age >130){
+        alert("Damm!, How are you still alive?");
+    }
     const FORM_YEAR = document.getElementById ("year_input");
     var year = Number(FORM_YEAR.value);
     output.innerHTML = "<h1>Welcome, "+username+"</h1>";
