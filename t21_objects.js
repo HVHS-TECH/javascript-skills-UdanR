@@ -6,7 +6,7 @@ Introduction
 
 // Variables
 var year = 2030;
-var users = [{name: "Mr.Legend", age: 22, grossincome: 0, netincome: 0}];
+var users = [{name: "Mr.Legend", age: 22, grossincome: 0, netincome: 0, Chocolate_Rating: 0}];
 var money = 0;
 var tax_money = 0;
 var taxed_amount = 0;
@@ -183,7 +183,9 @@ function reply_choco_rating(){
     var ratingArray = ["You loath chocolate","Chocolate is meh","Chocolate is pretty good","Chocolate is the best thing EVER!!!!" ]
     var rating = Number(choco_Rating.value);
     Chocolate_Rating.innerHTML = ratingArray[rating];
-
+    users.push({Chocolate_Rating: ratingArray[rating]});
+    for (var i=0; i < users.length; i++ ){
+    console.log(users);
 }
 
 
