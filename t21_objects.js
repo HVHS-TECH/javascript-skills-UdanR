@@ -1,12 +1,12 @@
 /* Paste your code from the last task */
 /* Paste your code from the last task */
-/* Paste your code from the last task */
 /****************************
 Introduction
 ****************************/
 
 // Variables
-var year = 2030
+var year = 2030;
+var users = [{name: "Mr.Legend", age: 22, salary: 0}];
 var money = 0;
 var tax_money = 0;
 var taxed_amount = 0;
@@ -174,4 +174,41 @@ function calculateChange (){
         outputChange.innerHTML += "<p>You will get $"+change+" change.</p>";
         return change;
 }
+}
+const Chocolate_Rating = document.getElementById ("Chocolate_Rating_Area");
+
+function reply_choco_rating(){
+    const choco_Rating = document.getElementById ("choco_rating");
+    var ratingArray = ["You loath chocolate","Chocolate is meh","Chocolate is pretty good","Chocolate is the best thing EVER!!!!" ]
+    var rating = Number(choco_Rating.value);
+    Chocolate_Rating.innerHTML = ratingArray[rating];
+
+}
+
+
+function Printmilksong() {
+    const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
+    Lyrics_Area.innerHTML = ""
+    const starting_Number = document.getElementById ("Starting_number");
+    var count = Number(starting_Number.value);
+    console.log("count " + count);
+    for (var count=count; count > -1; count-- ){
+        Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
+        console.log (count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around");
+    }
+}
+
+ var list_Array = [];
+function List_adding() {
+    const List_Area = document.getElementById ("List_Print_Area");
+    List_Area.innerHTML = ""
+    const Adding_Item = document.getElementById ("Item_name");
+    var Add_Item = String(Adding_Item.value);
+    List_Area.innerHTML += "You have added "+ Add_Item + " to the list"
+    console.log(Add_Item);
+    list_Array.push(Add_Item);
+    for (var Items=0; Items < list_Array.length; Items++ ){
+        List_Area.innerHTML += "Item "+ Items+ ": "+ list_Array[Items]+"<br>";
+        console.log ("Item "+ Items+ ": "+ list_Array[Items]);
+    }
 }
