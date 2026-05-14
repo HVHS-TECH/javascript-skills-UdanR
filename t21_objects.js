@@ -216,19 +216,3 @@ function List_adding() {
         console.log ("Item "+ Items+ ": "+ list_Array[Items]);
     }
 }
-
-function reset(){
-    FORM_NAME.value = "";
-    FORM_AGE.value = "";
-    FORM_YEAR.value = "";
-    FORM_WAGES.value = "";
-    spendingamount_Input.value = "";
-    choco_Rating.value = "";
-    starting_Number.value = "";
-    Adding_Item.value = "";
-    output.innerHTML = "";
-    outputChange.innerHTML = "";
-    Chocolate_Rating.innerHTML = "";
-    Lyrics_Area.innerHTML = "";
-    List_Area.innerHTML = "";
-}
