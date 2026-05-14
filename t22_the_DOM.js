@@ -57,7 +57,7 @@ function writeline(){
 
 function getFormInfo (){
     const FORM_NAME = document.getElementById ("name_input");
-    var username = FORM_NAME.value;
+     username = FORM_NAME.value;
     console.log (username);
     console.log (username.length);
     if (username.length < NAME_LENGHT_LIMIT) {
