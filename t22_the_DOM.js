@@ -151,10 +151,10 @@ const outputChange = document.getElementById ("changearea");
 const selectElement_spending = document.getElementById('spendingfrequency');
 function calculateChange (){
     const spendingamount_Input = document.getElementById ("spendingamount_input");
-    price = Number(spendingamount_Input.value);
+    var price = Number(spendingamount_Input.value);
     const selectedSpendingfrequency = selectElement_spending.value;
     if (selectedSpendingfrequency == "weekly"){
-        change = Number(afterTax-price);
+        var change = Number(afterTax-price);
         console.log ("price "+price);
         console.log ("aftertax "+afterTax);
         console.log ("change "+change);
@@ -223,6 +223,7 @@ function reset(){
     FORM_AGE.value = "";
     FORM_YEAR.value = "";
     FORM_WAGES.value = "";
+    price.value = "";
     spendingamount_Input.value = "";
     choco_Rating.value = "";
     starting_Number.value = "";
