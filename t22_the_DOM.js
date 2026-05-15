@@ -26,21 +26,7 @@ var orginal_money= 0;
 /****************************
 Main Code
 ****************************/
-console.log("Running t19_string_handling.js");
-
-const output = document.getElementById ("spaceForJavaScriptOutput");
-const AGE_LIMITE = 6;
-const NAME_LENGHT_LIMIT = 3;
-const TAX_BRACKET_ONE = 15600;
-const TAX_BRACKET_TWO = 53500;
-const TAX_BRACKET_THREE = 78100;
-const TAX_BRACKET_FOUR = 180000;
-const TAX_BRACKET_ONE_AMOUNT = 10.5;
-const TAX_BRACKET_TWO_AMOUNT = 17.5;
-const TAX_BRACKET_THREE_AMOUNT = 30;
-const TAX_BRACKET_FOUR_AMOUNT = 33;
-const TAX_BRACKET_FIVE_AMOUNT = 39;
-
+console.log("Running t22_the_DOM.js");
 
 writeline()
 writeline()
