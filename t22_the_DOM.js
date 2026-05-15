@@ -204,11 +204,11 @@ function Printmilksong() {
 }
 
  var list_Array = [];
+const List_Area = document.getElementById ("List_Print_Area");
 function List_adding() {
-    const List_Area = document.getElementById ("List_Print_Area");
     List_Area.innerHTML = ""
     const Adding_Item = document.getElementById ("Item_name");
-    var Add_Item = String(Adding_Item.value);
+    Add_Item = String(Adding_Item.value);
     List_Area.innerHTML += "You have added "+ Add_Item + " to the list"
     console.log(Add_Item);
     list_Array.push(Add_Item);
