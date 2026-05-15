@@ -190,12 +190,11 @@ function reply_choco_rating(){
 }
 }
 
-
+const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
 function Printmilksong() {
-    const Lyrics_Area = document.getElementById ("Lyrics_Print_Area");
     Lyrics_Area.innerHTML = ""
     const starting_Number = document.getElementById ("Starting_number");
-    var count = Number(starting_Number.value);
+    count = Number(starting_Number.value);
     console.log("count " + count);
     for (var count=count; count > -1; count-- ){
         Lyrics_Area.innerHTML += "<p>"+count+" bottles of milk on the wall<br>"+count+"bottle of milk<br>Take one out pass it around</p>";
@@ -218,7 +217,7 @@ function List_adding() {
     }
 }
 
-function reset(){
+function Clear_List(){
     FORM_NAME.value = "";
     FORM_AGE.value = "";
     FORM_YEAR.value = "";
@@ -233,4 +232,5 @@ function reset(){
     Chocolate_Rating.innerHTML = "";
     Lyrics_Area.innerHTML = "";
     List_Area.innerHTML = "";
+    list_Array = [];
 }
