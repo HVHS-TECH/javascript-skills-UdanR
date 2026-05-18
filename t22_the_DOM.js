@@ -218,6 +218,16 @@ function List_adding() {
 }
 
 function Clear_List(){
+    console.log(FORM_NAME.value +
+    FORM_AGE.value +
+    FORM_YEAR.value +
+    FORM_WAGES.value +
+    price +
+    spendingamount_Input +
+    choco_Rating +
+    starting_Number +
+    Adding_Item.value +
+    list_Array = []);
     FORM_NAME.value = "";
     FORM_AGE.value = "";
     FORM_YEAR.value = "";
@@ -233,4 +243,14 @@ function Clear_List(){
     Lyrics_Area.innerHTML = "";
     List_Area.innerHTML = "";
     list_Array = [];
+    console.log(FORM_NAME.value +
+    FORM_AGE.value +
+    FORM_YEAR.value +
+    FORM_WAGES.value +
+    price +
+    spendingamount_Input +
+    choco_Rating +
+    starting_Number +
+    Adding_Item.value +
+    list_Array);
 }
