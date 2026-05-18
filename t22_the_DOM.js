@@ -149,12 +149,12 @@ function getFormInfo (){
         output.innerHTML += "<p>You will have $"+afterTax+" after tax</p>";
 }
 
+const spendingamount_Input = document.getElementById ("spendingamount_input");
+const selectedSpendingfrequency = selectElement_spending.value;
 const outputChange = document.getElementById ("changearea");
 const selectElement_spending = document.getElementById('spendingfrequency');
 function calculateChange (){
-    const spendingamount_Input = document.getElementById ("spendingamount_input");
     var price = Number(spendingamount_Input.value);
-    const selectedSpendingfrequency = selectElement_spending.value;
     if (selectedSpendingfrequency == "weekly"){
         var change = Number(afterTax-price);
         console.log ("price "+price);
