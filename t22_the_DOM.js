@@ -179,9 +179,9 @@ function calculateChange (){
 }
 }
 const Chocolate_Rating = document.getElementById ("Chocolate_Rating_Area");
+const choco_Rating = document.getElementById ("choco_rating");
 
 function reply_choco_rating(){
-    const choco_Rating = document.getElementById ("choco_rating");
     var ratingArray = ["You loath chocolate","Chocolate is meh","Chocolate is pretty good","Chocolate is the best thing EVER!!!!" ]
     var rating = Number(choco_Rating.value);
     Chocolate_Rating.innerHTML = ratingArray[rating];
@@ -227,7 +227,6 @@ function Clear_List(){
     price +
     spendingamount_Input +
     choco_Rating +
-    starting_Number +
     Adding_Item.value +
     list_Array);
     FORM_NAME.value = "";
