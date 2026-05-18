@@ -55,8 +55,8 @@ function writeline(){
     output.innerHTML += "<p>Less code Matters</p>";
 }
 
+const FORM_NAME = document.getElementById ("name_input");
 function getFormInfo (){
-    const FORM_NAME = document.getElementById ("name_input");
     var username = FORM_NAME.value;
     console.log (username);
     console.log (username.length);
@@ -227,7 +227,7 @@ function Clear_List(){
     choco_Rating +
     starting_Number +
     Adding_Item.value +
-    list_Array = []);
+    list_Array);
     FORM_NAME.value = "";
     FORM_AGE.value = "";
     FORM_YEAR.value = "";
