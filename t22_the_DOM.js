@@ -56,6 +56,10 @@ function writeline(){
 }
 
 const FORM_NAME = document.getElementById ("name_input");
+const FORM_AGE = document.getElementById ("age_input");
+const FORM_YEAR = document.getElementById ("year_input");
+const FORM_WAGES = document.getElementById ("wages_input");
+
 function getFormInfo (){
     var username = FORM_NAME.value;
     console.log (username);
@@ -64,7 +68,6 @@ function getFormInfo (){
         alert("Error: Username is too short! Username must be 3 letters or longer");
         return;
 }
-    const FORM_AGE = document.getElementById ("age_input");
     var age = Number(FORM_AGE.value);
     if (age < AGE_LIMITE){
         alert("Erro: Too Young, need to be aleast 6 years old");
@@ -73,13 +76,12 @@ function getFormInfo (){
     if (age >130){
         alert("Damm!, How are you still alive?");
     }
-    const FORM_YEAR = document.getElementById ("year_input");
     var year = Number(FORM_YEAR.value);
     output.innerHTML = "<h1>Welcome, "+username+"</h1>";
     output.innerHTML += "<p>In "+year+", You are "+age+" years old</p>";
     const selectElement = document.getElementById('paymentdays');
     const selectedPaymentdays = selectElement.value;
-    const FORM_WAGES = document.getElementById ("wages_input");
+    
     if (selectedPaymentdays == "weekly"){
             var money = Number(FORM_WAGES.value);
             var month_wages = (money*52)/12;
