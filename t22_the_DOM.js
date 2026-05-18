@@ -236,7 +236,6 @@ function Clear_List(){
     price.value = "";
     spendingamount_Input.value = "";
     choco_Rating.value = "";
-    starting_Number.value = "";
     Adding_Item.value = "";
     output.innerHTML = "";
     outputChange.innerHTML = "";
@@ -251,7 +250,6 @@ function Clear_List(){
     price +
     spendingamount_Input +
     choco_Rating +
-    starting_Number +
     Adding_Item.value +
     list_Array);
 }
