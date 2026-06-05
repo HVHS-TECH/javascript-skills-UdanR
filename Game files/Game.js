@@ -1,8 +1,8 @@
 const fallbackPlanets = [
-  { name: 'Earth', gradient: 'radial-gradient(circle at 30% 30%, #7dd3fc 0%, #0ea5e9 35%, #14532d 65%, #052e16 100%)', x: 14, y: 78, distance: 1, mission: 'Home base with a full fuel dock.' },
-  { name: 'Moon', gradient: 'radial-gradient(circle at 35% 35%, #f8fafc 0%, #cbd5e1 35%, #94a3b8 70%, #475569 100%)', x: 58, y: 18, distance: 3, mission: 'A quiet crater station for quick refuels.' },
-  { name: 'Mars', gradient: 'radial-gradient(circle at 35% 35%, #fecaca 0%, #fb7185 35%, #b91c1c 70%, #7f1d1d 100%)', x: 82, y: 52, distance: 5, mission: 'A dusty red planet with a fuel tower.' },
-  { name: 'Jupiter', gradient: 'radial-gradient(circle at 35% 35%, #fde68a 0%, #fbbf24 35%, #a16207 70%, #713f12 100%)', x: 40, y: 72, distance: 7, mission: 'A giant gas world packed with boosters.' },
+  { name: 'Earth', gradient: 'radial-gradient(circle at 30% 30%, #7dd3fc 0%, #0ea5e9 35%, #14532d 65%, #052e16 100%)', x: 14, y: 78, distance: 1, radius: 8, mission: 'Home base with a full fuel dock.' },
+  { name: 'Moon', gradient: 'radial-gradient(circle at 35% 35%, #f8fafc 0%, #cbd5e1 35%, #94a3b8 70%, #475569 100%)', x: 58, y: 18, distance: 3, radius: 6, mission: 'A quiet crater station for quick refuels.' },
+  { name: 'Mars', gradient: 'radial-gradient(circle at 35% 35%, #fecaca 0%, #fb7185 35%, #b91c1c 70%, #7f1d1d 100%)', x: 82, y: 52, distance: 5, radius: 7, mission: 'A dusty red planet with a fuel tower.' },
+  { name: 'Jupiter', gradient: 'radial-gradient(circle at 35% 35%, #fde68a 0%, #fbbf24 35%, #a16207 70%, #713f12 100%)', x: 40, y: 72, distance: 7, radius: 9, mission: 'A giant gas world packed with boosters.' },
 ];
 
 let planets = [...fallbackPlanets];
@@ -161,6 +161,34 @@ function travelTo(targetName) {
   }, 650);
 }
 
+function getLandingRadius(planet) {
+  return planet.radius || 8;
+}
+
+function tryLandOnPlanet() {
+  const nearest = planets
+    .map((planet) => ({
+      planet,
+      distance: Math.hypot(planet.x - state.x, planet.y - state.y),
+    }))
+    .sort((a, b) => a.distance - b.distance)[0];
+
+  if (!nearest) {
+    return false;
+  }
+
+  if (nearest.distance <= getLandingRadius(nearest.planet) + 4) {
+    state.currentPlanet = nearest.planet.name;
+    state.fuel = Math.min(state.maxFuel, state.fuel + 18);
+    state.velocityX *= 0.2;
+    state.velocityY *= 0.2;
+    setMessage(`Landed on ${nearest.planet.name}! Fuel refilled. Try another route.`);
+    return true;
+  }
+
+  return false;
+}
+
 function tickPhysics() {
   const turningPower = 2.2;
   const thrustPower = 0.18;
@@ -191,14 +219,12 @@ function tickPhysics() {
   state.x = Math.min(92, Math.max(8, state.x + state.velocityX));
   state.y = Math.min(88, Math.max(10, state.y + state.velocityY));
 
-  const landedPlanet = planets.find((planet) => Math.hypot(planet.x - state.x, planet.y - state.y) < 7);
-  if (landedPlanet && landedPlanet.name !== state.currentPlanet) {
-    state.currentPlanet = landedPlanet.name;
-    state.fuel = state.maxFuel;
-    state.velocityX = 0;
-    state.velocityY = 0;
-    setMessage(`Landed on ${landedPlanet.name}! Fuel refilled. Try another route.`);
-  } else if (state.fuel <= 0) {
+  if (tryLandOnPlanet()) {
+    updateStatus();
+    return;
+  }
+
+  if (state.fuel <= 0) {
     setMessage('Fuel is empty. Land on a planet to refuel.');
   }
 
