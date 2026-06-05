@@ -1,0 +1,45 @@
+{
+  "rocket": {
+    "body": "linear-gradient(145deg, #e0f2fe, #38bdf8 55%, #0f172a)",
+    "accent": "#f8fafc",
+    "flame": "linear-gradient(180deg, #fde68a, #fb7185 55%, #7c2d12)"
+  },
+  "planets": [
+    {
+      "name": "Earth",
+      "x": 14,
+      "y": 78,
+      "distance": 1,
+      "mission": "Home base with a bright blue ocean and green continents.",
+      "gradient": "radial-gradient(circle at 30% 30%, #7dd3fc 0%, #0ea5e9 35%, #14532d 65%, #052e16 100%)",
+      "ring": "rgba(125, 211, 252, 0.18)"
+    },
+    {
+      "name": "Moon",
+      "x": 58,
+      "y": 18,
+      "distance": 3,
+      "mission": "A pale crater world with frozen dust and safe refuel bays.",
+      "gradient": "radial-gradient(circle at 35% 35%, #f8fafc 0%, #cbd5e1 35%, #94a3b8 70%, #475569 100%)",
+      "ring": "rgba(226, 232, 240, 0.18)"
+    },
+    {
+      "name": "Mars",
+      "x": 82,
+      "y": 52,
+      "distance": 5,
+      "mission": "A red desert base with glowing fuel towers and canyons.",
+      "gradient": "radial-gradient(circle at 35% 35%, #fecaca 0%, #fb7185 35%, #b91c1c 70%, #7f1d1d 100%)",
+      "ring": "rgba(251, 113, 133, 0.18)"
+    },
+    {
+      "name": "Jupiter",
+      "x": 40,
+      "y": 72,
+      "distance": 7,
+      "mission": "A stormy gas giant with ringed clouds and heavy boosters.",
+      "gradient": "radial-gradient(circle at 35% 35%, #fde68a 0%, #fbbf24 35%, #a16207 70%, #713f12 100%)",
+      "ring": "rgba(251, 191, 36, 0.18)"
+    }
+  ]
+}

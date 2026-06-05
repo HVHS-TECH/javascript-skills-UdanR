@@ -1,9 +1,12 @@
-const planets = [
-  { name: 'Earth', color: 'linear-gradient(135deg, #38bdf8, #0f766e)', x: 14, y: 78, distance: 1, mission: 'Home base with a full fuel dock.' },
-  { name: 'Moon', color: 'linear-gradient(135deg, #e5e7eb, #64748b)', x: 58, y: 18, distance: 3, mission: 'A quiet crater station for quick refuels.' },
-  { name: 'Mars', color: 'linear-gradient(135deg, #fb7185, #b91c1c)', x: 82, y: 52, distance: 5, mission: 'A dusty red planet with a fuel tower.' },
-  { name: 'Jupiter', color: 'linear-gradient(135deg, #fbbf24, #a16207)', x: 40, y: 72, distance: 7, mission: 'A giant gas world packed with boosters.' },
+const fallbackPlanets = [
+  { name: 'Earth', gradient: 'radial-gradient(circle at 30% 30%, #7dd3fc 0%, #0ea5e9 35%, #14532d 65%, #052e16 100%)', x: 14, y: 78, distance: 1, mission: 'Home base with a full fuel dock.' },
+  { name: 'Moon', gradient: 'radial-gradient(circle at 35% 35%, #f8fafc 0%, #cbd5e1 35%, #94a3b8 70%, #475569 100%)', x: 58, y: 18, distance: 3, mission: 'A quiet crater station for quick refuels.' },
+  { name: 'Mars', gradient: 'radial-gradient(circle at 35% 35%, #fecaca 0%, #fb7185 35%, #b91c1c 70%, #7f1d1d 100%)', x: 82, y: 52, distance: 5, mission: 'A dusty red planet with a fuel tower.' },
+  { name: 'Jupiter', gradient: 'radial-gradient(circle at 35% 35%, #fde68a 0%, #fbbf24 35%, #a16207 70%, #713f12 100%)', x: 40, y: 72, distance: 7, mission: 'A giant gas world packed with boosters.' },
 ];
+
+let planets = [...fallbackPlanets];
+let gameData = null;
 
 const state = {
   currentPlanet: 'Earth',
@@ -12,6 +15,10 @@ const state = {
   trips: 0,
   x: 14,
   y: 78,
+  heading: 0,
+  velocityX: 0,
+  velocityY: 0,
+  thrusting: false,
 };
 
 const spaceMap = document.getElementById('space-map');
@@ -24,8 +31,10 @@ const tripCount = document.getElementById('trip-count');
 const fuelBar = document.getElementById('fuel-bar');
 const missionMessage = document.getElementById('mission-message');
 
+const pressedKeys = new Set();
+
 function getPlanet(name) {
-  return planets.find((planet) => planet.name === name);
+  return planets.find((planet) => planet.name === name) || planets[0];
 }
 
 function drawPlanets() {
@@ -34,14 +43,16 @@ function drawPlanets() {
   planets.forEach((planet) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'planet';
+    button.className = 'planet detailed';
     if (planet.name === state.currentPlanet) {
       button.classList.add('planet-current');
     }
     button.style.left = `${planet.x}%`;
     button.style.top = `${planet.y}%`;
+    button.style.setProperty('--planet-gradient', planet.gradient || 'radial-gradient(circle at 30% 30%, #38bdf8, #0f172a)');
+    button.style.setProperty('--planet-ring', planet.ring || 'rgba(125, 211, 252, 0.15)');
     button.innerHTML = `
-      <span class="planet-icon" style="background:${planet.color};"></span>
+      <span class="planet-icon"></span>
       <span class="planet-name">${planet.name}</span>
     `;
     button.title = planet.mission;
@@ -71,7 +82,11 @@ function drawRoutes() {
 }
 
 function renderScene() {
-  sceneView.innerHTML = '<div class="scene-rocket" aria-label="Rocket"></div>';
+  sceneView.innerHTML = '';
+  const rocketNode = document.createElement('div');
+  rocketNode.className = 'scene-rocket' + (state.thrusting ? ' burning' : '');
+  rocketNode.setAttribute('aria-label', 'Rocket');
+  sceneView.appendChild(rocketNode);
 
   planets.forEach((planet) => {
     const dx = planet.x - state.x;
@@ -83,7 +98,8 @@ function renderScene() {
     marker.className = 'scene-planet';
     marker.style.left = `${Math.max(6, Math.min(94, left))}%`;
     marker.style.top = `${Math.max(10, Math.min(88, top))}%`;
-    marker.innerHTML = `<span class="scene-planet-icon" style="background:${planet.color};"></span><span>${planet.name}</span>`;
+    marker.style.setProperty('--planet-gradient', planet.gradient || 'radial-gradient(circle at 30% 30%, #38bdf8, #0f172a)');
+    marker.innerHTML = `<span class="scene-planet-icon"></span><span>${planet.name}</span>`;
     sceneView.appendChild(marker);
   });
 }
@@ -93,12 +109,14 @@ function updateStatus() {
   const fuelPercent = Math.max(0, state.fuel);
 
   currentPlanetLabel.textContent = current.name;
-  fuelReadout.textContent = `${fuelPercent}%`;
+  fuelReadout.textContent = `${fuelPercent.toFixed(0)}%`;
   tripCount.textContent = String(state.trips);
   fuelBar.style.width = `${fuelPercent}%`;
 
   rocket.style.left = `${state.x}%`;
   rocket.style.top = `${state.y}%`;
+  rocket.style.transform = `translate(-50%, -50%) rotate(${state.heading}deg)`;
+  rocket.classList.toggle('flaming', state.thrusting && state.fuel > 0);
 
   drawPlanets();
   drawRoutes();
@@ -130,6 +148,8 @@ function travelTo(targetName) {
   state.trips += 1;
   state.x = target.x;
   state.y = target.y;
+  state.velocityX = 0;
+  state.velocityY = 0;
   setMessage(`Flying from ${current.name} to ${target.name}. Fuel used: ${fuelCost}%.`);
   updateStatus();
 
@@ -141,55 +161,78 @@ function travelTo(targetName) {
   }, 650);
 }
 
-function moveRocket(dx, dy) {
-  if (state.fuel <= 0) {
-    setMessage('Your fuel tank is empty. Land on a planet to refill.');
-    return;
+function tickPhysics() {
+  const turningPower = 2.2;
+  const thrustPower = 0.18;
+
+  if (pressedKeys.has('ArrowLeft')) {
+    state.heading -= turningPower;
+  }
+  if (pressedKeys.has('ArrowRight')) {
+    state.heading += turningPower;
   }
 
-  const nextX = Math.min(92, Math.max(8, state.x + dx * 6));
-  const nextY = Math.min(88, Math.max(10, state.y + dy * 6));
-  const fuelCost = 3;
+  state.thrusting = pressedKeys.has('ArrowUp');
 
-  if (state.fuel < fuelCost) {
-    setMessage('You need more fuel to move. Land on a planet to refill.');
-    return;
+  if (state.thrusting && state.fuel > 0) {
+    const radians = (state.heading * Math.PI) / 180;
+    state.velocityX += Math.cos(radians) * thrustPower;
+    state.velocityY += Math.sin(radians) * thrustPower;
+    state.fuel = Math.max(0, state.fuel - 0.35);
   }
 
-  state.x = nextX;
-  state.y = nextY;
-  state.fuel = Math.max(0, state.fuel - fuelCost);
-  updateStatus();
+  if (pressedKeys.has('ArrowDown')) {
+    state.velocityX *= 0.88;
+    state.velocityY *= 0.88;
+  }
 
-  const landedPlanet = planets.find((planet) => Math.hypot(planet.x - state.x, planet.y - state.y) < 10);
+  state.velocityX *= 0.94;
+  state.velocityY *= 0.94;
+  state.x = Math.min(92, Math.max(8, state.x + state.velocityX));
+  state.y = Math.min(88, Math.max(10, state.y + state.velocityY));
+
+  const landedPlanet = planets.find((planet) => Math.hypot(planet.x - state.x, planet.y - state.y) < 7);
   if (landedPlanet && landedPlanet.name !== state.currentPlanet) {
     state.currentPlanet = landedPlanet.name;
     state.fuel = state.maxFuel;
-    setMessage(`Landed on ${landedPlanet.name}! Fuel refilled.`);
-    updateStatus();
-  } else if (state.fuel === 0) {
-    setMessage('Fuel is empty. Find a planet to refuel.');
-  } else {
-    setMessage(`Rocket is moving. Fuel left: ${state.fuel}%.`);
+    state.velocityX = 0;
+    state.velocityY = 0;
+    setMessage(`Landed on ${landedPlanet.name}! Fuel refilled. Try another route.`);
+  } else if (state.fuel <= 0) {
+    setMessage('Fuel is empty. Land on a planet to refuel.');
   }
+
+  updateStatus();
+}
+
+function loadGameData(data) {
+  gameData = data;
+  planets = Array.isArray(data.planets) && data.planets.length ? data.planets : [...fallbackPlanets];
+  state.currentPlanet = planets[0].name;
+  state.x = planets[0].x;
+  state.y = planets[0].y;
+  updateStatus();
 }
 
 window.addEventListener('keydown', (event) => {
-  const keyMap = {
-    ArrowUp: [0, -1],
-    ArrowDown: [0, 1],
-    ArrowLeft: [-1, 0],
-    ArrowRight: [1, 0],
-  };
-
-  if (!keyMap[event.key]) {
-    return;
+  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+    event.preventDefault();
+    pressedKeys.add(event.key);
   }
-
-  event.preventDefault();
-  const [dx, dy] = keyMap[event.key];
-  moveRocket(dx, dy);
 });
 
+window.addEventListener('keyup', (event) => {
+  pressedKeys.delete(event.key);
+});
+
+fetch('Game.json')
+  .then((response) => response.json())
+  .then(loadGameData)
+  .catch(() => {
+    loadGameData({ planets: fallbackPlanets });
+    setMessage('Using built-in graphics because the JSON data is not available yet.');
+  });
+
+setInterval(tickPhysics, 80);
 updateStatus();
-setMessage('Use the arrow keys to steer the rocket. Land on a planet to refill your tank.');
+setMessage('Use Up to thrust, Left/Right to steer, and land on planets to refill fuel.');
