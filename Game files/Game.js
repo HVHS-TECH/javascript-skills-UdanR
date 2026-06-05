@@ -15,6 +15,7 @@ const state = {
 };
 
 const spaceMap = document.getElementById('space-map');
+const sceneView = document.getElementById('scene-view');
 const rocket = document.getElementById('rocket');
 const planetList = document.getElementById('planet-list');
 const currentPlanetLabel = document.getElementById('current-planet');
@@ -69,6 +70,24 @@ function drawRoutes() {
   });
 }
 
+function renderScene() {
+  sceneView.innerHTML = '<div class="scene-rocket" aria-label="Rocket"></div>';
+
+  planets.forEach((planet) => {
+    const dx = planet.x - state.x;
+    const dy = planet.y - state.y;
+    const left = 50 + dx * 0.8;
+    const top = 70 - dy * 0.8;
+
+    const marker = document.createElement('div');
+    marker.className = 'scene-planet';
+    marker.style.left = `${Math.max(6, Math.min(94, left))}%`;
+    marker.style.top = `${Math.max(10, Math.min(88, top))}%`;
+    marker.innerHTML = `<span class="scene-planet-icon" style="background:${planet.color};"></span><span>${planet.name}</span>`;
+    sceneView.appendChild(marker);
+  });
+}
+
 function updateStatus() {
   const current = getPlanet(state.currentPlanet);
   const fuelPercent = Math.max(0, state.fuel);
@@ -83,6 +102,7 @@ function updateStatus() {
 
   drawPlanets();
   drawRoutes();
+  renderScene();
 }
 
 function setMessage(text) {
