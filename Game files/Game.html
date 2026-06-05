@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rocket Planet Game</title>
+    <link rel="stylesheet" href="Game.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero-card">
+        <p class="eyebrow">Space Mission</p>
+        <h1>Rocket Planet Game</h1>
+        <p class="subtitle">
+          Fly between planets, watch your fuel tank drain, and refill every time you land.
+        </p>
+      </header>
+
+      <main class="game-grid">
+        <section class="panel status-panel">
+          <h2>Flight Status</h2>
+          <div class="stat-row">
+            <span>Current planet</span>
+            <strong id="current-planet">Earth</strong>
+          </div>
+          <div class="stat-row">
+            <span>Fuel tank</span>
+            <strong id="fuel-readout">100%</strong>
+          </div>
+          <div class="stat-row">
+            <span>Trips completed</span>
+            <strong id="trip-count">0</strong>
+          </div>
+          <div class="fuel-bar-wrap">
+            <div id="fuel-bar"></div>
+          </div>
+          <p id="mission-message" class="mission-message">Choose a destination to launch.</p>
+        </section>
+
+        <section class="panel map-panel">
+          <h2>Galaxy Map</h2>
+          <div id="space-map" aria-label="Space map with planets">
+            <div id="rocket" aria-label="Rocket">🚀</div>
+          </div>
+        </section>
+
+        <section class="panel routes-panel">
+          <h2>Travel Routes</h2>
+          <div id="planet-list" class="planet-list"></div>
+          <p class="tip">Each trip costs fuel. Landing on a planet automatically refuels the tank.</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="Game.js"></script>
+  </body>
+</html>
