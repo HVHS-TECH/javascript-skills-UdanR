@@ -7,7 +7,7 @@
 body {
     overflow: hidden;
     background: black;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
 }
 
 #game {
@@ -19,9 +19,13 @@ body {
     top: 20px;
     left: 20px;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     background: rgba(0,0,0,0.4);
     padding: 10px;
     border-radius: 8px;
-    z-index: 10;
+}
+
+#status {
+    margin-top: 5px;
+    color: #7CFF7C;
 }
