@@ -40,13 +40,13 @@ const rocket = {
 const camera = { x: 0, y: 0 };
 
 /////////////////////////////////////////////////////
-// PLANETS (BIGGER = easier landing)
+// PLANETS
 /////////////////////////////////////////////////////
 
 const planets = [
-    { x: 0, y: 0, r: 120, gravity: 1200, color: "#3da9ff" },
-    { x: 700, y: -300, r: 90, gravity: 900, color: "#7CFF7C" },
-    { x: -800, y: 500, r: 140, gravity: 1500, color: "#ff6b6b" }
+    { x: 0, y: 0, r: 120, gravity: 1600, color: "#3da9ff" },
+    { x: 700, y: -350, r: 90, gravity: 1200, color: "#7CFF7C" },
+    { x: -800, y: 500, r: 140, gravity: 2000, color: "#ff6b6b" }
 ];
 
 /////////////////////////////////////////////////////
@@ -54,6 +54,7 @@ const planets = [
 /////////////////////////////////////////////////////
 
 const stars = [];
+
 for(let i=0;i<1200;i++){
     stars.push({
         x:(Math.random()-0.5)*20000,
@@ -80,7 +81,7 @@ function spawnFlame(){
 }
 
 /////////////////////////////////////////////////////
-// GRAVITY (FIXED REALISTIC VERSION)
+// GRAVITY + LANDING (FIXED STABLE VERSION)
 /////////////////////////////////////////////////////
 
 function applyGravity(){
@@ -96,27 +97,35 @@ function applyGravity(){
 
         if(dist < 1) continue;
 
-        // LANDING ZONE
+        // HARD COLLISION + LANDING
         if(dist < p.r + 10){
 
             const speed = Math.sqrt(rocket.vx**2 + rocket.vy**2);
 
-            if(speed < 2.2){   // easier landing threshold
+            const nx = dx / dist;
+            const ny = dy / dist;
+
+            // push out of planet (prevents bouncing bug)
+            const overlap = (p.r + 10) - dist;
+
+            rocket.x -= nx * overlap;
+            rocket.y -= ny * overlap;
+
+            if(speed < 2){
+
                 rocket.landed = true;
 
-                // stop sliding
-                rocket.vx *= 0.85;
-                rocket.vy *= 0.85;
+                rocket.vx *= 0.5;
+                rocket.vy *= 0.5;
 
-                // fuel refill
-                rocket.fuel = Math.min(100, rocket.fuel + 0.5);
+                rocket.fuel = Math.min(100, rocket.fuel + 0.6);
             }
 
             continue;
         }
 
-        // REALISTIC GRAVITY (stable version)
-        const force = p.gravity / (dist * dist);
+        // STABLE GRAVITY
+        const force = p.gravity / (dist * dist + 800);
 
         rocket.vx += dx * force;
         rocket.vy += dy * force;
@@ -129,11 +138,9 @@ function applyGravity(){
 
 function update(){
 
-    // rotation
     if(keys["a"]) rocket.angle -= rocket.rotationSpeed;
     if(keys["d"]) rocket.angle += rocket.rotationSpeed;
 
-    // thrust
     if(keys["w"] && rocket.fuel > 0){
 
         rocket.vx += Math.cos(rocket.angle) * rocket.thrust;
@@ -174,24 +181,7 @@ function update(){
 }
 
 /////////////////////////////////////////////////////
-// DRAW PLANETS
-/////////////////////////////////////////////////////
-
-function drawPlanets(){
-    for(const p of planets){
-
-        const x = p.x - camera.x + canvas.width/2;
-        const y = p.y - camera.y + canvas.height/2;
-
-        ctx.beginPath();
-        ctx.arc(x,y,p.r,0,Math.PI*2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-    }
-}
-
-/////////////////////////////////////////////////////
-// STARS
+// DRAW
 /////////////////////////////////////////////////////
 
 function drawStars(){
@@ -207,9 +197,18 @@ function drawStars(){
     }
 }
 
-/////////////////////////////////////////////////////
-// PARTICLES
-/////////////////////////////////////////////////////
+function drawPlanets(){
+    for(const p of planets){
+
+        const x = p.x - camera.x + canvas.width/2;
+        const y = p.y - camera.y + canvas.height/2;
+
+        ctx.beginPath();
+        ctx.arc(x,y,p.r,0,Math.PI*2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+    }
+}
 
 function drawParticles(){
     for(const p of particles){
@@ -223,10 +222,6 @@ function drawParticles(){
         ctx.fill();
     }
 }
-
-/////////////////////////////////////////////////////
-// ROCKET
-/////////////////////////////////////////////////////
 
 function drawRocket(){
 
@@ -250,7 +245,7 @@ function drawRocket(){
 }
 
 /////////////////////////////////////////////////////
-// MINIMAP (FIXED - WAS MISSING)
+// MINIMAP (FIXED)
 /////////////////////////////////////////////////////
 
 function drawMinimap(){
@@ -262,7 +257,6 @@ function drawMinimap(){
     ctx.fillStyle = "rgba(0,0,0,0.5)";
     ctx.fillRect(x0,y0,size,size);
 
-    // planets
     for(const p of planets){
         ctx.fillStyle = p.color;
         ctx.fillRect(
@@ -272,7 +266,6 @@ function drawMinimap(){
         );
     }
 
-    // rocket
     ctx.fillStyle = "white";
     ctx.fillRect(
         x0 + size/2 + rocket.x*0.04,
@@ -282,10 +275,12 @@ function drawMinimap(){
 }
 
 /////////////////////////////////////////////////////
-// DRAW
+// LOOP
 /////////////////////////////////////////////////////
 
-function draw(){
+function loop(){
+    update();
+
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
     drawStars();
@@ -293,15 +288,7 @@ function draw(){
     drawParticles();
     drawRocket();
     drawMinimap();
-}
 
-/////////////////////////////////////////////////////
-// LOOP
-/////////////////////////////////////////////////////
-
-function loop(){
-    update();
-    draw();
     requestAnimationFrame(loop);
 }
 
